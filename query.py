@@ -6,6 +6,8 @@ import sys
 import json
 from dotenv import load_dotenv
 
+load_dotenv()
+
 def fuzzy_search(search_terms, data):
     results = []
     search_terms = search_terms.lower().split()
