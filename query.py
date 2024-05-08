@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
+import os
 import sqlite3
 import sys
 import json
-from dotenv import load_dotenv
 
 def fuzzy_search(search_terms, data):
     results = []
