@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 
+import os
 import sqlite3
 import sys
 import json
 from dotenv import load_dotenv
-
-load_dotenv()
 
 def fuzzy_search(search_terms, data):
     results = []
@@ -36,6 +35,7 @@ if __name__ == "__main__":
 
     try:
         search_terms = sys.argv[1]
+        load_dotenv()
         database_path = os.getenv("DATABASE_PATH")
 
         with sqlite3.connect(database_path) as conn:

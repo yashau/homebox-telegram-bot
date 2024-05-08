@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import os
 import json
 import logging
 import re
@@ -9,6 +10,8 @@ from telegram import Update
 from telegram.ext import Application, ContextTypes, MessageHandler, filters
 from dotenv import load_dotenv
 
+
+load_dotenv()
 bot_username = os.getenv("TELEGRAM_BOT_USERNAME")
 bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
 
