@@ -24,8 +24,11 @@ logger = logging.getLogger(__name__)
 
 
 async def search(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    if bot_username in update.message.text:
-        query = re.sub(bot_username, '', update.message.text).strip()
+    message_text = update.message.text
+    chat_type = update.message.chat.type
+
+    if chat_type == 'private' or bot_username in message_text:
+        query = message_text if chat_type == 'private' else re.sub(bot_username, '', message_text).strip()
         if query:
             try:
                 process = await create_subprocess_exec(
